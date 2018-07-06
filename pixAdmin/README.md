@@ -17,7 +17,10 @@ Create your new ZF2 project:
 
     composer create-project -n -sdev zendframework/skeleton-application path/to/install
 
+### Project Description
 
+It is basically admin panel of app where we manage the orders and plan
+login : admin@mailinator.com/123456
 
 ### Installation using a tarball with a local Composer
 
