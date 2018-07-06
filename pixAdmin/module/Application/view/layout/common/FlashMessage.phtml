@@ -1,0 +1,15 @@
+<div class="message"><?php
+$flashMessage = $this->flashMessage();
+if (!empty($flashMessage)) {
+    echo $flashMessage; 
+    $this->flashMessenger()->clearCurrentMessages();
+   $this->flashMessenger()->clearMessages();
+   $this->flashMessenger()->clearCurrentMessages();
+}
+
+if (isset($this->errors) && count($this->errors) >0) {
+    ?>
+<div class='alert alert-error'><?php echo implode('<br />', $this->errors) ?></div>
+<?php } ?>
+
+</div>

@@ -1,0 +1,204 @@
+ALTER TABLE `product` ADD `return_type` TINYINT( 2 ) NOT NULL DEFAULT '1' COMMENT '0 for false, 1 for true' AFTER `selling_price` ;
+
+ALTER TABLE `product` ADD `return_policy` TEXT NULL AFTER `return_type` ;
+
+alter table category add parent_cat smallint(6) unsigned default 0;
+
+ALTER TABLE `category` ADD `image_url` VARCHAR( 255 ) NULL AFTER `name` ;
+
+
+ALTER TABLE `product` ADD `pick_up_id` BIGINT( 20 ) NULL AFTER `return_policy` ;
+
+
+ALTER TABLE `pickup_centre` ADD `open_time` VARCHAR( 50 ) NULL AFTER `state` ;
+ALTER TABLE `pickup_centre` ADD `close_time` VARCHAR( 50 ) NULL AFTER `open_time` ;
+ALTER TABLE `pickup_centre` ADD `status` TINYINT( 2 ) NOT NULL DEFAULT '0';
+ALTER TABLE `product` ADD `state_id` BIGINT( 20 ) NULL AFTER `pick_up_id` ;
+
+
+
+ALTER TABLE `user_profile` ADD `area_of_operation` INT NOT NULL DEFAULT '0' AFTER `profile_pic` ,
+ADD `start_date` BIGINT( 20 ) NULL AFTER `area_of_operation` ;
+
+
+ALTER TABLE `retailer_documents` ADD `is_approved` TINYINT( 2 ) NOT NULL DEFAULT '0' AFTER `status` ,
+ADD `is_request_update` TINYINT( 2 ) NOT NULL DEFAULT '0' AFTER `is_approved` ;
+
+---------------------------------------------------------------------
+activate_retailer
+---------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `activate_retailer` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `retailer_id` bigint(20) NOT NULL,
+  `description` varchar(500) DEFAULT NULL,
+  `created_by` bigint(20) NOT NULL,
+  `created_on` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+
+ALTER TABLE `block_retailer` ADD `status` TINYINT( 2 ) NOT NULL DEFAULT '1' COMMENT '1 for block, 2 for unblock';
+
+
+##added for neighbout captured latitude and longitude
+
+ALTER TABLE `neighbours_details` ADD `latitude` VARCHAR( 30 ) NOT NULL AFTER `img_url` , 
+ADD `longitude` VARCHAR( 30 ) NOT NULL AFTER `latitude` ;
+
+
+ALTER TABLE `users` ADD `user_role` INT NOT NULL DEFAULT '0' AFTER `user_type` ;
+
+
+--
+-- Table structure for table `user_type`
+--
+
+CREATE TABLE IF NOT EXISTS `user_type` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `type_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `user_type`
+--
+
+INSERT INTO `user_type` (`id`, `type_id`, `name`) VALUES
+(1, 1, 'FOS'),
+(2, 2, 'Retailers'),
+(3, 3, 'Tele'),
+(4, 4, 'RPC'),
+(5, 5, 'Delivery');
+
+
+
+
+--
+-- Table structure for table `user_roles`
+--
+
+CREATE TABLE IF NOT EXISTS `user_roles` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_type_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `user_roles`
+--
+
+INSERT INTO `user_roles` (`id`, `user_type_id`, `name`) VALUES
+(1, 1, 'FOS'),
+(2, 1, 'FOS supervisor'),
+(3, 3, 'Tele'),
+(4, 3, 'Tele Supervisor'),
+(5, 4, 'RPC'),
+(6, 4, 'RPC Supervisor'),
+(7, 5, 'Delivery'),
+(8, 5, 'Delivery Supervisor');
+
+
+### added new table for RPC Module#############
+CREATE TABLE `rpc` (
+ `id` bigint(20) NOT NULL AUTO_INCREMENT,
+ `name` varchar(100) DEFAULT NULL,
+ `address` varchar(255) DEFAULT NULL,
+ `postal_code` varchar(10) DEFAULT NULL,
+ `city` varchar(100) DEFAULT NULL,
+ `state` int(11) DEFAULT NULL,
+ `contact_name` varchar(100) NOT NULL,
+ `contact_number` varchar(20) NOT NULL,
+ `email` varchar(20) NOT NULL,
+ `mobile` varchar(12) NOT NULL,
+ `created_by` bigint(20) NOT NULL,
+ `created_on` varchar(50) NOT NULL,
+ `updated_by` bigint(20) DEFAULT NULL,
+ `updated_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ `status` tinyint(2) NOT NULL DEFAULT '0',
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+
+
+## added new values in code master values table and code master table for Weekly off field in pickup center
+INSERT INTO `ezo`.`code_master` (`id`, `name`, `status`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES (NULL, 'Weekly Off', '0', '1', '2016-03-16 00:00:00', '1', CURRENT_TIMESTAMP);
+
+INSERT INTO `ezo`.`code_master_values` (`id`, `code_master_id`, `name`, `status`, `created_on`, `created_by`, `updated_on`, `updated_by`) VALUES (NULL, '1', 'Monday', '0', '2016-03-16 00:00:00', '1', CURRENT_TIMESTAMP, '1');
+
+INSERT INTO `ezo`.`code_master_values` (`id`, `code_master_id`, `name`, `status`, `created_on`, `created_by`, `updated_on`, `updated_by`) VALUES (NULL, '1', 'Tuesday', '0', '2016-03-16 00:00:00', '1', CURRENT_TIMESTAMP, '1');
+
+INSERT INTO `ezo`.`code_master_values` (`id`, `code_master_id`, `name`, `status`, `created_on`, `created_by`, `updated_on`, `updated_by`) VALUES (NULL, '1', 'Wednesday', '0', '2016-03-16 00:00:00', '1', CURRENT_TIMESTAMP, '1');
+
+INSERT INTO `ezo`.`code_master_values` (`id`, `code_master_id`, `name`, `status`, `created_on`, `created_by`, `updated_on`, `updated_by`) VALUES (NULL, '1', 'Thursday', '0', '2016-03-16 00:00:00', '1', CURRENT_TIMESTAMP, '1');
+
+INSERT INTO `ezo`.`code_master_values` (`id`, `code_master_id`, `name`, `status`, `created_on`, `created_by`, `updated_on`, `updated_by`) VALUES (NULL, '1', 'Friday', '0', '2016-03-16 00:00:00', '1', CURRENT_TIMESTAMP, '1');
+
+INSERT INTO `ezo`.`code_master_values` (`id`, `code_master_id`, `name`, `status`, `created_on`, `created_by`, `updated_on`, `updated_by`) VALUES (NULL, '1', 'Saturday', '0', '2016-03-16 00:00:00', '1', CURRENT_TIMESTAMP, '1');
+
+INSERT INTO `ezo`.`code_master_values` (`id`, `code_master_id`, `name`, `status`, `created_on`, `created_by`, `updated_on`, `updated_by`) VALUES (NULL, '1', 'Sunday', '0', '2016-03-16 00:00:00', '1', CURRENT_TIMESTAMP, '1');
+
+##added new field in picup center for weekly off
+ALTER TABLE `pickup_centre` ADD `weekly_off` VARCHAR(15) NULL AFTER `close_time` ;
+
+ALTER TABLE `notification_templates` ADD `mode_id` CHAR( 50 ) NULL AFTER `sub_type_id` ;
+
+
+ALTER TABLE `category` ADD `tax_id` BIGINT( 20 ) NULL AFTER `image_url` ;
+
+ALTER TABLE `taxes` ADD `start_date` DATE NULL AFTER `tax_type` ;
+ALTER TABLE `taxes` ADD `end_date` DATE NULL AFTER `start_date` ;
+
+------------------------------------------------------------
+offer in code master and value
+--------------------------------------------------------------
+INSERT INTO `ezo`.`code_master` (`id`, `name`, `alias`, `status`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES (NULL, 'Offer From', 'offer_from', '0', '1', '2016-04-01 13:24:22', NULL, CURRENT_TIMESTAMP);
+
+INSERT INTO `ezo`.`code_master_values` (`id`, `code_master_id`, `name`, `status`, `created_on`, `created_by`, `updated_on`, `updated_by`) VALUES (NULL, '4', 'eZoWebo Offer', '0', '2016-04-01 13:33:23', '1', CURRENT_TIMESTAMP, NULL);
+
+INSERT INTO `ezo`.`code_master_values` (`id`, `code_master_id`, `name`, `status`, `created_on`, `created_by`, `updated_on`, `updated_by`) VALUES (NULL, '4', 'Brand Offer', '0', '2016-04-01 13:33:23', '1', CURRENT_TIMESTAMP, NULL);
+
+INSERT INTO `ezo`.`code_master` (`id`, `name`, `alias`, `status`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES (NULL, 'offer Type', 'offer_type', '0', '1', '2016-04-01 15:24:23', NULL, CURRENT_TIMESTAMP);
+
+INSERT INTO `ezo`.`code_master_values` (`id`, `code_master_id`, `name`, `status`, `created_on`, `created_by`, `updated_on`, `updated_by`) VALUES (NULL, '5', 'Buy X Get Y Free', '0', '2016-04-01 13:33:23', '1', CURRENT_TIMESTAMP, NULL);
+
+
+INSERT INTO `ezo`.`code_master` (`id`, `name`, `alias`, `status`, `created_by`, `created_on`, `updated_by`, `updated_on`) VALUES (NULL, 'Apply To', 'apply_to', '0', '1', '2016-04-01 16:37:35', NULL, CURRENT_TIMESTAMP);
+
+INSERT INTO `ezo`.`code_master_values` (`id`, `code_master_id`, `name`, `status`, `created_on`, `created_by`, `updated_on`, `updated_by`) VALUES (NULL, '6', 'Category', '0', '2016-04-01 13:33:23', '1', CURRENT_TIMESTAMP, NULL);
+INSERT INTO `ezo`.`code_master_values` (`id`, `code_master_id`, `name`, `status`, `created_on`, `created_by`, `updated_on`, `updated_by`) VALUES (NULL, '6', 'Brand', '0', '2016-04-01 13:33:23', '1', CURRENT_TIMESTAMP, NULL);
+INSERT INTO `ezo`.`code_master_values` (`id`, `code_master_id`, `name`, `status`, `created_on`, `created_by`, `updated_on`, `updated_by`) VALUES (NULL, '6', 'Cart', '0', '2016-04-01 13:33:23', '1', CURRENT_TIMESTAMP, NULL);
+INSERT INTO `ezo`.`code_master_values` (`id`, `code_master_id`, `name`, `status`, `created_on`, `created_by`, `updated_on`, `updated_by`) VALUES (NULL, '6', 'State', '0', '2016-04-01 13:33:23', '1', CURRENT_TIMESTAMP, NULL);
+INSERT INTO `ezo`.`code_master_values` (`id`, `code_master_id`, `name`, `status`, `created_on`, `created_by`, `updated_on`, `updated_by`) VALUES (NULL, '6', 'None', '0', '2016-04-01 13:33:23', '1', CURRENT_TIMESTAMP, NULL);
+
+
+
+------------------------------------------------------------------
+ALTER TABLE `taxes` CHANGE `status` `status` TINYINT( 1 ) NOT NULL DEFAULT '0' COMMENT '0 for active, 1 for blocked and 2 for deleted';
+ALTER TABLE `taxes` DROP `end_date` ;
+
+ALTER TABLE `taxes` ADD `applying_on_value` VARCHAR( 50 ) NULL AFTER `start_date` ;
+ALTER TABLE `taxes` ADD `applying_on_category` BIGINT( 20 ) NULL AFTER `applying_on_value` ,
+ADD `applying_on_pro_category` VARCHAR( 100 ) NULL AFTER `applying_on_category` ;
+
+ALTER TABLE `offers` ADD `banner_url` VARCHAR( 255 ) NULL AFTER `tnc_description` ;
+
+-------------------------------------------------------------------
+Alter Roles
+-------------------------------------------------------------------
+
+ALTER TABLE `offers` ADD `brand_id` BIGINT( 20 ) NULL AFTER `type_id` ;
+
+ALTER TABLE `offers` ADD `offer_type_option` VARCHAR( 100 ) NULL AFTER `brand_id` ;
+ALTER TABLE `offers` ADD `apply_to_value` VARCHAR( 100 ) NULL AFTER `apply_to` ;
+ALTER TABLE `offers` ADD `brand_value` VARCHAR( 100 ) NULL AFTER `brand_id` ;
+
+ALTER TABLE `offers` CHANGE `value` `offer_type_value` VARCHAR( 100 ) NULL ;
+---------------------------------------------------------------------------------------------
+
+
+ALTER TABLE `product_inventory` ADD `stock_date` DATE NULL AFTER `total_stock` ;
+
+ALTER TABLE `product` ADD `rpc_id` BIGINT( 20 ) NULL AFTER `pick_up_id` ;

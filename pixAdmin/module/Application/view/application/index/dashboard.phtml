@@ -1,0 +1,93 @@
+<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+		
+			<!-- END STYLE CUSTOMIZER -->
+			<!-- BEGIN PAGE HEADER-->
+			<h3 class="page-title"> 
+                            <i class="fa fa-home" style="font-size:30px;"></i>
+			Dashboard
+			</h3>
+			
+			<!-- END PAGE HEADER-->
+			<!-- BEGIN DASHBOARD STATS -->
+			<div class="row">
+				<div class="col-lg-4 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat blue-madison">
+						<div class="visual">
+							<i class="fa fa-comments"></i>
+						</div>
+						<div class="details">
+							<div id="activeFos" class="number">
+								<?php echo $this->userId ?>
+							</div>
+							<div class="desc">
+								 Users
+							</div>
+						</div>
+						<a class="more" href="/users/index">
+						View more <i class="m-icon-swapright m-icon-white"></i>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat red-intense">
+						<div class="visual">
+							<i class="fa fa-bar-chart-o"></i>
+						</div>
+						<div class="details">
+							<div id="ttlRtl" class="number">
+								<?php echo $this->orderDetails; ?>
+							</div>
+							<div class="desc">
+								 Orders
+							</div>
+						</div>
+						<a class="more" href="/order/index">
+						View more <i class="m-icon-swapright m-icon-white"></i>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat green-haze">
+						<div class="visual">
+							<i class="fa fa-shopping-cart"></i>
+						</div>
+						<div class="details">
+							<div id="ttlActRel" class="number">
+								<?php echo $this->subscriptionPlan; ?>
+							</div>
+							<div class="desc">
+								Subscriptions
+							</div>
+						</div>
+						<a class="more" href="/subscription/index">
+						View more <i class="m-icon-swapright m-icon-white"></i>
+						</a>
+					</div>
+				</div>
+<!-- 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12"> -->
+<!-- 					<div class="dashboard-stat purple-plum"> -->
+<!-- 						<div class="visual"> -->
+<!-- 							<i class="fa fa-globe"></i> -->
+<!-- 						</div> -->
+<!-- 						<div class="details"> -->
+<!-- 							<div class="number"> -->
+<!-- 								 +89% -->
+<!-- 							</div> -->
+<!-- 							<div class="desc"> -->
+<!-- 								 Shared Images -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<a class="more" href="#"> -->
+<!-- 						View more <i class="m-icon-swapright m-icon-white"></i> -->
+<!-- 						</a> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+			</div>
+			<!-- END DASHBOARD STATS -->
+			<div class="clearfix">
+			</div>
+<script type="text/javascript">
+$(function(){
+	
+});
+</script>

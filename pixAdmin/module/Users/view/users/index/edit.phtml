@@ -1,0 +1,187 @@
+<link id="style_color" type="text/css" rel="stylesheet" href="/assets/admin/layout/css/themes/default.css">
+<link type="text/css" rel="stylesheet" href="/assets/admin/layout/css/custom.css">
+<link href="/assets/global/plugins/bootstrap-datepicker/css/datepicker.css" type="text/css" rel="stylesheet">
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="/users/index">User Management</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            Update User Details
+        </li>
+    </ul>
+</div>
+<div class="col-md-12 ">
+	<!-- BEGIN SAMPLE FORM PORTLET-->
+	<div class="portlet box red">
+		<div class="portlet-title">
+			<div class="caption">
+				<i class="fa fa-reorder"></i> Update User Details
+			</div>
+		</div>
+		<div class="portlet-body form">
+		<?php 
+		    $form = $this->form;
+            $form->setAttribute('action', '');
+            $form->prepare();
+            echo $this->form ()->openTag ( $form );
+            ?>
+			<?php echo $this->formElement($form->get('fosId')); ?>
+			<div class="form-body">
+						<div class="form-group">
+					       <div class="col-md-6 ">
+							<label for="fosFirstName">First Name <span class="required"> * </span></label>
+							<div class="input-group">
+								<span class="input-group-addon"> <i class="fa fa-user"></i>
+								</span> 
+						<?php echo $this->formElement($form->get('fosFirstName'));?>
+                        <?php echo $this->formElementErrors($form->get('fosFirstName'));?>
+							</div>
+						</div>
+						<div class="col-md-6 ">
+							<label for="fosLastName">Last Name <span class="required"> * </span></label>
+							<div class="input-group">
+								<span class="input-group-addon"> <i class="fa fa-user"></i>
+								</span> 
+						<?php echo $this->formElement($form->get('fosLastName'));?>
+                        <?php echo $this->formElementErrors($form->get('fosLastName'));?>
+
+							</div>
+						</div>
+					</div>
+
+					
+ 
+					<div class="form-group">
+						<div class="col-md-6 ">
+							<label for="fosUserName">Username <span class="required"> * </span></label>
+							<div class="input-group">
+								<span class="input-group-addon"> <i class="fa fa-user"></i>
+								</span> <?php echo $this->formElement($form->get('fosUserName'));?>
+                        <?php echo $this->formElementErrors($form->get('fosUserName'));?>
+
+							</div>
+						</div>
+						<div class="col-md-6 ">
+							<label for="fosEmail">Email Address <span class="required"> * </span></label>
+							<div class="input-group">
+								<span class="input-group-addon"> <i class="fa fa-envelope"></i>
+								</span> <?php echo $this->formElement($form->get('fosEmail'));?>
+                        <?php echo $this->formElementErrors($form->get('fosEmail'));?>
+							</div>
+						</div>
+					</div>
+
+					
+					
+                    
+                    <div class="form-group">
+						<div class="col-md-6 ">
+							<label for="fosMobile">Mobile <span class="required"> * </span></label>
+							<div class="input-group">
+								<span class="input-group-addon"> <i class="fa fa-mobile"></i>
+								</span> <?php echo $this->formElement($form->get('fosMobile'));?>
+                        <?php echo $this->formElementErrors($form->get('fosMobile'));?>
+
+							</div>
+						</div>
+						<div class="col-md-6 ">
+							<label for="stateId">Area of Operation <span class="required"> * </span></label>
+							<div class="input-group">
+								<span class="input-group-addon"> <i class="fa fa-area"></i>
+								</span> <?php echo $this->formElement($form->get('stateId'));?>
+                        <?php echo $this->formElementErrors($form->get('stateId'));?>
+
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+                    
+                    <div class="col-md-6 ">
+                        <label for="startDate">User Category <span class="required"> * </span></label>
+                        <div class="input-group input-large">
+                            <?php echo $this->formElement($form->get('usrCategory')); ?>
+                            
+                        </div>
+                        <span class="help-block">
+                            <?php echo $this->formElementErrors($form->get('usrCategory')); ?>
+                        </span>
+                    </div>
+                    
+                    <div class="col-md-6 ">
+                        <label for="startDate">User Role <span class="required"> * </span></label>
+                        <div class="input-group input-large" id="usrrle">
+                            <?php echo $this->formElement($form->get('usrRoles')); ?>
+                           
+                        </div>
+                        <span class="help-block">
+                            <?php echo $this->formElementErrors($form->get('usrRoles')); ?>
+                        </span>
+                    </div>
+                    </div>
+					<div class="form-group">
+					   <div class="col-md-6 ">
+							<label for="startDate">Start Date <span class="required"> * </span></label>
+							<div class="input-group input-medium date date-picker" data-date-format="yyyy-mm-dd" data-date-start-date="+0d">
+								<?php echo $this->formElement($form->get('startDate'));?>
+								<span class="input-group-btn">
+            						<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+            						</span>
+            				</div>
+            				<span class="help-block">
+                            <?php echo $this->formElementErrors($form->get('startDate'));?>
+							</span>
+						</div>
+						</div>
+				
+				   <div class="form-group">
+                        <label class="col-md-3 control-label">&nbsp;</label>
+                        <div class="col-md-4">
+                        <button type="submit" class="btn green">Go</button>
+                            <?php //echo $this->formElement($form->get('submit')); ?>
+                            <a class="btn red" href="/users/index">Cancel</a>
+                        </div>
+                        <label class="col-md-3 control-label">&nbsp;</label>
+                        <div class="col-md-4">
+                            
+                        </div>
+                    </div>
+				</div>
+		</div>
+	</div>
+	<!-- END SAMPLE FORM PORTLET-->
+</div>
+
+ <?php echo $this->inlinescript() 
+        ->appendFile($this->basepath(). '/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js')
+        ->appendFile($this->basePath(). '/assets/global/plugins/jquery-validation/js/jquery.validate.min.js')
+        ->appendFile($this->basePath(). '/assets/global/plugins/jquery-validation/js/additional-methods.js')
+//         ->appendFile($this->basePath(). '/assets/admin/pages/scripts/form-validation.js')
+        ->appendFile($this->basePath(). '/assets/admin/pages/scripts/login.js')
+ ?>
+<!--<script>
+function getUserRoles(str){
+    $.post('/users/get-roles-list', {catId : str}, function(data){
+        $('#usrrle').html(data);
+        $('#usrRoles').select2();
+        });
+}
+jQuery(document).ready(function() {   
+	$('.date-picker').datepicker({
+        format: 'yyyy-mm-dd',
+//         orientation: "left",
+        autoclose: true
+    });
+	$(".select2").select2({
+        placeholder: "Select",
+        allowClear: true,
+        escapeMarkup: function (m) {
+            return m;
+        }
+    });
+	Login.init();
+//    FormValidation.init();
+});
+</script>-->

@@ -1,0 +1,164 @@
+<?php if ($this->pageCount): ?>
+     <div>
+         <ul class="pagination">
+             <!-- Previous page link -->
+             <?php if (isset($this->previous)): ?>
+                 <li>
+                     <a onclick="paginatePrev('<?php echo $this->previous; ?>','<?php echo $this->action ?>')" href="javascript:void(0)">
+                         <<
+                     </a>
+                 </li>
+             <?php else: ?>
+                 <li class="disabled">
+                     <a href="#">
+                         <<
+                     </a>
+                 </li>
+             <?php endif; ?>
+
+             <!-- Numbered page links -->
+             <?php foreach ($this->pagesInRange as $page): ?>
+                 <?php if ($page != $this->current): ?>
+                     <li>
+                         <a onclick="pageChange('<?php echo $page; ?>','<?php echo $this->action ?>')" href="javascript:void(0)" >
+                             <?php echo $page; ?>
+                         </a>
+                     </li>
+                 <?php else: ?>
+                     <li class="active">
+                         <a href="#"><?php echo $page; ?></a>
+                     </li>
+                 <?php endif; ?>
+             <?php endforeach; ?>
+
+             <!-- Next page link -->
+             <?php if (isset($this->next)): ?>
+                 <li>
+                     <a onclick="paginateNext('<?php echo $this->next; ?>','<?php echo $this->action ?>')" href="javascript:void(0)" >
+                         >>
+                     </a>
+                 </li>
+             <?php else: ?>
+                 <li class="disabled">
+                     <a href="#">
+                         >>
+                     </a>
+                 </li>
+             <?php endif; ?>
+<!--              <li> 
+                     <a onclick="paginateAll('','<?php //echo $this->action ?>')" href="javascript:void(0)" > -->
+<!--                         All -->
+<!--                      </a> -->
+<!--                  </li> -->
+         </ul>
+     </div>
+ <?php endif; ?>
+ 
+ <script type="text/javascript">
+    function paginatePrev(page, CurrentAction)
+    {
+        var data = {};
+        data['currentPage'] = page;        
+        data['countperPage'] = '10';
+        data['search'] = $('#searchText').val();
+        data['user'] = $('#user').val();
+        data['columnName'] = $('#columnName').val();
+        data['sortBy'] = $('#sortBy').val();
+        if(CurrentAction == 'getpucproductlist'){
+            data['pucId'] = $('#pucId').val();
+        }
+        var action = CurrentAction;
+        
+        var url = '/<?php echo $this->route ?>/'+action;
+        
+        $.ajax({
+                url: url,
+                type: 'POST',
+                datatype: 'html',
+                data: data,
+                success: function (data, status)
+                {
+                    $('#resultData').html(data);
+                }
+            });
+    }
+    
+    function pageChange(page, CurrentAction)
+    {
+        var data = {};
+        data['currentPage'] = page;
+        data['countperPage'] = '10';
+        data['search'] = $('#searchText').val();
+        data['user'] = $('#user').val();
+        data['columnName'] = $('#columnName').val();
+        data['sortBy'] = $('#sortBy').val();
+        if(CurrentAction == 'getpucproductlist'){
+            data['pucId'] = $('#pucId').val();
+        }
+        var action = CurrentAction;
+        
+        var url = '/<?php echo $this->route ?>/'+action;
+        
+        $.ajax({
+                url: url,
+                type: 'POST',
+                datatype: 'html',
+                data: data,
+                success: function (data, status)
+                {
+                	$('#resultData').html(data);               
+                }
+            });
+    }
+    function paginateNext(page, CurrentAction)
+    {
+        
+        var data = {};
+        data['currentPage'] = page;
+        data['countperPage'] = '10';
+        data['search'] = $('#searchText').val();
+        data['user'] = $('#user').val();
+        data['columnName'] = $('#columnName').val();
+        data['sortBy'] = $('#sortBy').val();
+        if(CurrentAction == 'getpucproductlist'){
+            data['pucId'] = $('#pucId').val();
+        }
+        var action = CurrentAction;
+                
+        var url = '/<?php echo $this->route ?>/'+action;
+        $.ajax({
+                url: url,
+                type: 'POST',
+                datatype: 'html',
+                data: data,
+                success: function (data, status)
+                { 
+                	$('#resultData').html(data);
+                }
+            });
+    }
+    function paginateAll(page, CurrentAction)
+    {
+        var data = {};
+        data['currentPage'] = '';
+        data['countperPage'] = 'all';
+        data['search'] = $('#searchText').val();
+        data['user'] = $('#user').val();
+        data['columnName'] = $('#columnName').val();
+        data['sortBy'] = $('#sortBy').val();
+        var action = CurrentAction;
+                
+        var url = '/<?php echo $this->route ?>/'+action;
+        
+        $.ajax({
+                url: url,
+                type: 'POST',
+                datatype: 'html',
+                data: data,
+                success: function (data, status)
+                { 
+                	$('#resultData').html(data);
+                }
+            });
+    }
+</script>

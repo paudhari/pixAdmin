@@ -1,0 +1,104 @@
+<link id="style_color" type="text/css" rel="stylesheet" href="/assets/admin/layout/css/themes/default.css">
+<link type="text/css" rel="stylesheet" href="/assets/admin/layout/css/custom.css">
+<link href="/assets/global/plugins/bootstrap-datepicker/css/datepicker.css" type="text/css" rel="stylesheet">
+<style>
+    .error{
+        color: red;
+    }
+</style>
+<div class="row ">
+    <!-- BEGIN SAMPLE FORM PORTLET-->
+    <div class="portlet box yellow-casablanca">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-reorder"></i> Add Note
+            </div>
+        </div>
+        <div class="portlet-body form">
+            <?php
+            $form = $this->form;
+            $form->setAttribute('action', '');
+            $form->prepare();
+            echo $this->form()->openTag($form);
+            ?>
+
+            <div class="form-body">
+               <div class="form-group">
+                    <label class="col-md-2 control-label" for="fosLastName" >Note Description<span class="required"> * </span></label>
+                    <div class="col-md-4 ">
+                        <?php echo $this->formElement($form->get('noteDescription')); ?>
+                        <span class="help-block">
+                            <?php echo $this->formElementErrors($form->get('noteDescription')); ?>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4 ">
+                        <?php echo $this->formElement($form->get('submit')); ?>
+
+                    </div>
+                </div>
+
+            </div>
+            <?php echo $this->form()->closeTag($form); ?>
+
+            <?php
+            echo $this->inlinescript()
+                    ->appendFile($this->basepath() . '/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js')
+                    ->appendFile($this->basePath() . '/assets/global/plugins/jquery-validation/js/jquery.validate.min.js')
+                    ->appendFile($this->basePath() . '/assets/global/plugins/jquery-validation/js/additional-methods.js')
+//             ->appendFile($this->basePath() . '/assets/admin/pages/scripts/form-validation.js')
+                    ->appendFile($this->basePath() . '/assets/admin/pages/scripts/login.js')
+            ?>
+            <script>
+                $(document).ready(function () {
+                    validateAddCandidate();
+                   
+                });
+//                function durationDetails(value) {
+//                    if (value == '0') {
+//                        $("#oneTime").show();
+//                        $("#noOfImages").show();
+//                        $("#price").show();
+//                        $("#recurring").hide();
+//                    } else if (value == '1') {
+//                        $("#oneTime").hide();
+//                        $("#recurring").show();
+//                        $("#noOfImages").show();
+//                        $("#price").show();
+//                    }
+//                }
+
+                function validateAddCandidate() {
+                    $('#notesform').validate({// initialize the plugin
+                        rules: {
+                            noteDescription: {
+                                required: true
+                            },
+                        },
+                        messages: {
+                            noteDescription: {
+                                required: '<?php echo $this->translate("Please enter note description"); ?>',
+                            },
+                        }, submitHandler: function (form) {
+                            if ($('#notesform').valid()) {
+                                 addNote();
+                            }
+                        },
+                    });
+                }
+
+ function  addNote(){
+              var formData=  $('#notesform').serializeArray();
+                $.ajax({
+                url: '/notes/add-note',
+                type: 'POST',
+                datatype: 'HTML', //server return data in the provided formate
+                data: formData,
+                success: function (data) {
+                    window.location.href= '/notes/index';
+                    }
+            });  
+    }
+     
+            </script>

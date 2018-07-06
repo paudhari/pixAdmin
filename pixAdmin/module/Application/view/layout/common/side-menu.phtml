@@ -1,0 +1,366 @@
+<!-- BEGIN SIDEBAR -->
+<div class="page-sidebar-wrapper">
+    <div class="page-sidebar navbar-collapse collapse">
+        <!-- BEGIN SIDEBAR MENU -->
+        <ul class="page-sidebar-menu " data-auto-scroll="true" data-slide-speed="200">
+            <li class="sidebar-toggler-wrapper">
+                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                <div class="sidebar-toggler">
+                </div>
+                <!-- END SIDEBAR TOGGLER BUTTON -->
+            </li>
+
+            <?php 
+                        
+//            if ($this->layout()->userRole == '0') { ?>
+            <li class="heading">
+					<h3 class="uppercase">Admin Section</h3>
+				</li>
+                <li class="<?php // echo ($this->layout()->actionName == 'dashboard') ? 'start active open' : '' ?>">
+                    <a href="/application/index">
+                        <i class="icon-home"></i>
+                        <span class="title">Dashboard</span>
+                        <span class="selected"></span>
+
+                    </a>
+
+                </li>
+                <li class="<?php // echo ($this->layout()->moduleName == 'Users' && ($this->layout()->actionName == 'index' || $this->layout()->actionName == 'detail' || $this->layout()->actionName == 'add-fos')) ? 'start active' : '' ?>">
+                    <a href="/users/index">
+                        <i class="icon-user"></i>
+                        <span class="title">Users Management</span>
+                        <span class="<?php // echo ($this->layout()->moduleName == 'Users') ? 'selected' : '' ?>"></span>
+
+                    </a>
+
+                </li>
+                <li class="<?php // echo ($this->layout()->moduleName == 'Users' && ($this->layout()->actionName == 'index' || $this->layout()->actionName == 'detail' || $this->layout()->actionName == 'add-fos')) ? 'start active' : '' ?>">
+                    <a href="/order/index">
+                        <i class="icon-basket"></i>
+                        <span class="title">Orders Management</span>
+                        <span class="<?php // echo ($this->layout()->moduleName == 'Users') ? 'selected' : '' ?>"></span>
+
+                    </a>
+
+                </li>
+                <li class="<?php // echo ($this->layout()->moduleName == 'Users' && ($this->layout()->actionName == 'index' || $this->layout()->actionName == 'detail' || $this->layout()->actionName == 'add-fos')) ? 'start active' : '' ?>">
+                    <a href="/subscription/index">
+                        <i class="fa fa-strikethrough"></i>
+                        <span class="title">Subscriptions</span>
+                        <span class="<?php // echo ($this->layout()->moduleName == 'Users') ? 'selected' : '' ?>"></span>
+
+                    </a>
+
+                </li>
+                <li class="<?php // echo ($this->layout()->moduleName == 'Users' && ($this->layout()->actionName == 'index' || $this->layout()->actionName == 'detail' || $this->layout()->actionName == 'add-fos')) ? 'start active' : '' ?>">
+                    <a href="/notes/index">
+                        <i class="fa fa-file"></i>
+                        <span class="title">Notes</span>
+                        <span class="<?php // echo ($this->layout()->moduleName == 'Users') ? 'selected' : '' ?>"></span>
+
+                    </a>
+
+                </li>
+                <li class="<?php // echo ($this->layout()->moduleName == 'Users' && ($this->layout()->actionName == 'index' || $this->layout()->actionName == 'detail' || $this->layout()->actionName == 'add-fos')) ? 'start active' : '' ?>">
+                    <a href="/payment/index">
+                        <i class="fa fa-money"></i>
+                        <span class="title">Payment History</span>
+                        <span class="<?php // echo ($this->layout()->moduleName == 'Users') ? 'selected' : '' ?>"></span>
+
+                    </a>
+
+                </li>
+               
+               
+				
+<!--                <li class="<?php // echo ($this->layout()->moduleName == 'Category') ? 'active open' : '' ?>">
+                    <a href="javascript:;">
+                        <i class="icon-docs"></i>
+                        <span class="title">Category Management</span>
+                        <?php // if ($this->layout()->moduleName == 'category') { ?>
+                            <span class="selected"></span>
+                            <span class="arrow open"></span>
+                        <?php // } ?>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="<?php // echo ($this->layout()->moduleName == 'Category' && $this->layout()->actionName == 'index') ? 'active' : '' ?>">
+                            <a href="/category/index">
+                                <i class="icon-list"></i> Category List</a>
+                        </li>
+                        <li class="<?php // echo ($this->layout()->moduleName == 'Category' && $this->layout()->actionName == 'add-new') ? 'active' : '' ?>">
+                            <a href="/category/add-new">
+                                <i class="icon-plus"></i> Add New </a>
+                        </li>
+                    </ul>
+                </li>-->
+
+<!--                <li class="<?php // echo ($this->layout()->moduleName == 'Brand') ? 'active open' : '' ?>">
+                    <a href="javascript:;">
+                        <i class="icon-docs"></i>
+                        <span class="title">Brand Management</span>
+                        <?php if ($this->layout()->moduleName == 'Brand') { ?>
+                            <span class="selected"></span>
+                            <span class="arrow open"></span>
+                        <?php } ?>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="<?php // echo ($this->layout()->moduleName == 'Brand' && $this->layout()->actionName == 'index') ? 'active' : '' ?>">
+                            <a href="/brand/index">
+                                <i class="icon-list"></i> Brand List</a>
+                        </li>
+                        <li class="<?php // echo ($this->layout()->moduleName == 'Brand' && $this->layout()->actionName == 'add-new') ? 'active' : '' ?>">
+                            <a href="/brand/add-new">
+                                <i class="icon-plus"></i> Add New </a>
+                        </li>
+                    </ul>
+                </li>-->
+
+
+<!--                <li class="<?php // echo ($this->layout()->moduleName == 'Product') ? 'active open' : '' ?>">
+                    <a href="javascript:;">
+                        <i class="icon-graph"></i>
+                        <span class="title">Product Management</span>
+                        <?php // if ($this->layout()->moduleName == 'product') { ?>
+                            <span class="selected"></span>
+                            <span class="arrow open"></span>
+                        <?php // } ?>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="<?php // echo ($this->layout()->moduleName == 'Product' && $this->layout()->actionName == 'index') ? 'active' : '' ?>">
+                            <a href="/product/index">
+                                <i class="icon-list"></i> Product List</a>
+                        </li>
+                        
+                        <li class="<?php // echo ($this->layout()->moduleName == 'Product' && $this->layout()->actionName == 'add-new') ? 'active' : '' ?>">
+                            <a href="/product/add-new">
+                                <i class="icon-plus"></i> Add New </a>
+                        </li>
+                        <li class="<?php // echo ($this->layout()->moduleName == 'Product' && $this->layout()->actionName == 'update-product-details') ? 'active' : '' ?>">
+                            <a href="/product/update-product-details">
+                                <i class="icon-plus"></i> Update Product Price </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+                <li class="<?php // echo ($this->layout()->moduleName == 'Pickupcentre') ? 'active open' : '' ?>">
+                    <a href="javascript:;">
+                        <i class="icon-docs"></i>
+                        <span class="title">PUC Management</span>
+                        <?php // if ($this->layout()->moduleName == 'Pickupcentre') { ?>
+                            <span class="selected"></span>
+                            <span class="arrow open"></span>
+                        <?php // } ?>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="<?php // echo ($this->layout()->moduleName == 'Pickupcentre' && $this->layout()->actionName == 'index') ? 'active' : '' ?>">
+                            <a href="/pickupcentre/index">
+                                <i class="icon-list"></i> PUC List</a>
+                        </li>
+                        <li class="<?php // echo ($this->layout()->moduleName == 'Pickupcentre' && $this->layout()->actionName == 'add-new') ? 'active' : '' ?>">
+                            <a href="/pickupcentre/add-new">
+                                <i class="icon-plus"></i> Add New PUC</a>
+                        </li>
+                    </ul>
+                </li>
+				<li class="<?php // echo ($this->layout()->moduleName == 'Data') ? 'active open' : '' ?>">
+                    <a href="/data/index">
+                        <i class="icon-docs"></i>
+                        <span class="title">Neighborhood Data</span>
+                        <?php // if ($this->layout()->moduleName == 'Data') { ?>
+                            <span class="selected"></span>
+                        <?php // } ?>
+                    </a>
+                </li>
+                <li class="<?php // echo ($this->layout()->moduleName == 'Order'  && ($this->layout()->actionName =='index' || $this->layout()->actionName =='packaging-index'
+//                            || $this->layout()->actionName =='dispatch-index' )) ? 'active' : '' ?>">
+                    <a href="javascript:;">
+                        <i class="icon-basket"></i>
+                        <span class="title">Order Management</span>
+                        <?php // if ($this->layout()->moduleName == 'Order' && ($this->layout()->actionName =='index' || $this->layout()->actionName =='packaging-index'
+//                            || $this->layout()->actionName =='dispatch-index' )) { ?>
+                            <span class="selected"></span>
+                            <span class="open"></span>
+                        <?php // } ?>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="<?php // echo ($this->layout()->moduleName == 'Order' && $this->layout()->actionName == 'index') ? 'active' : '' ?>">
+                            <a href="/order/index">
+                                <i class="icon-list"></i> Order List</a>
+                        </li>
+                        <li class="<?php // echo ($this->layout()->moduleName == 'Order' && $this->layout()->actionName == 'packaging-index') ? 'active' : '' ?>">
+                            <a href="/order/packaging-index">
+                                <i class="icon-list"></i> Out For Packaging List </a>
+                        </li>
+                        <li class="<?php // echo ($this->layout()->moduleName == 'Order' && $this->layout()->actionName == 'dispatch-index') ? 'active' : '' ?>">
+                            <a href="/order/dispatch-index">
+                                <i class="icon-list"></i> Out For Delivery List </a>
+                        </li>
+                    </ul>
+
+                </li>-->
+
+                
+<!--                <li class="<?php // echo ($this->layout()->moduleName == 'Rpc' ) ? 'active ' : '' ?>">
+                    <a href="/rpc/index">
+                        <i class="icon-docs"></i>
+                        <span class="title">RPC Management</span>
+                        <?php // if ($this->layout()->moduleName == 'Rpc') { ?>
+                            <span class="selected"></span>
+                        <?php // } ?>
+                    </a>
+                    
+                </li>
+                <li class="<?php // echo ($this->layout()->moduleName == 'Notification') ? 'active open' : '' ?>">
+                    <a href="javascript:;">
+                        <i class="fa fa-bell-o"></i>
+                        <span class="title">Notification Management</span>
+                        <span class=""></span>
+                        <?php // if ($this->layout()->moduleName == 'Notification') { ?>
+                            <span class="selected"></span>
+                        <?php // } ?>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="<?php // echo ($this->layout()->moduleName == 'Notification' && $this->layout()->actionName == 'email') ? 'active' : '' ?>">
+                            <a href="/notification/email">
+                                <i class="icon-envelope"></i> Notifications List</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="<?php // echo ($this->layout()->moduleName == 'Pushnotification' || ($this->layout()->moduleName == 'Users' && $this->layout()->actionName == 'add-credit')) ? 'active open' : '' ?>">
+                    <a href="javascript:;">
+                        <i class="fa fa-lock"></i>
+                        <span class="title">Push Notification</span>
+                        <span class=""></span>
+                        <?php // if ($this->layout()->moduleName == 'Pushnotification' || ($this->layout()->moduleName == 'Users' && $this->layout()->actionName == 'add-credit')) { ?>
+                            <span class="selected"></span>
+                            <span class="arrow open"></span>
+                        <?php // } ?>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="<?php echo ($this->layout()->moduleName == 'Pushnotification' && $this->layout()->actionName == 'index') ? 'active' : '' ?>">
+                            <a href="/pushnotification/send-push">
+                                <i class="icon-list"></i> Send Push</a>
+                        </li>
+                        <li class="<?php // echo ($this->layout()->moduleName == 'Users' && $this->layout()->actionName == 'add-credit') ? 'active' : '' ?>">
+                            <a href="/users/add-credit">
+                                <i class="icon-plus"></i> Add eZowebo Credit</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="<?php // echo ($this->layout()->moduleName == 'Roles') ? 'active open' : '' ?>">
+                    <a href="javascript:;">
+                        <i class="fa fa-lock"></i>
+                        <span class="title">Roles Management</span>
+                        <span class=""></span>
+                        <?php // if ($this->layout()->moduleName == 'Roles') { ?>
+                            <span class="selected"></span>
+                            <span class="arrow open"></span>
+                        <?php // } ?>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="<?php // echo ($this->layout()->moduleName == 'Roles' && $this->layout()->actionName == 'index') ? 'active' : '' ?>">
+                            <a href="/roles/index">
+                                <i class="icon-list"></i> Roles Listing</a>
+                        </li>
+                        <li class="<?php // echo ($this->layout()->moduleName == 'Roles' && $this->layout()->actionName == 'add-roles') ? 'active' : '' ?>">
+                            <a href="/roles/add-roles">
+                                <i class="icon-plus"></i> Add Role</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="<?php // echo ($this->layout()->moduleName == 'offers') ? 'active open' : '' ?>">
+                    <a href="javascript:;">
+                        <i class="fa fa-gift"></i>
+                        <span class="title">Offers</span>
+                        <span class=""></span>
+                        <?php // if ($this->layout()->moduleName == 'offers') { ?>
+                            <span class="selected"></span>
+                            <span class="arrow open"></span>
+                        <?php // } ?>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="<?php // echo ($this->layout()->moduleName == 'offers' && $this->layout()->actionName == 'index') ? 'active' : '' ?>">
+                            <a href="/offers/index">
+                                <i class="icon-list"></i> Offers Listing</a>
+                        </li>
+                        <li class="<?php // echo ($this->layout()->moduleName == 'offers' && $this->layout()->actionName == 'add-new') ? 'active' : '' ?>">
+                            <a href="/offers/add-new">
+                                <i class="icon-plus"></i> Add Offer</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="<?php // echo ($this->layout()->moduleName == 'Taxes') ? 'active open' : '' ?>">
+                    <a href="javascript:;">
+                        <i class="icon-settings"></i>
+                        <span class="title">Tax Management</span>
+                        <span class=""></span>
+                        <?php // if ($this->layout()->moduleName == 'Taxes') { ?>
+                            <span class="selected"></span>
+                            <span class="arrow open"></span>
+                        <?php // } ?>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="<?php // echo ($this->layout()->moduleName == 'Taxes' && $this->layout()->actionName == 'index') ? 'active' : '' ?>">
+                            <a href="/taxes/index">
+                                <i class="icon-list"></i>Tax List</a>
+                        </li>
+                        <li class="<?php // echo ($this->layout()->moduleName == 'Taxes' && $this->layout()->actionName == 'add-new') ? 'active' : '' ?>">
+                            <a href="/taxes/add-new">
+                                <i class="icon-plus"></i> Add New Tax</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="<?php // echo ($this->layout()->moduleName == 'Companymaster') ? 'active open' : '' ?>">
+                    <a href="javascript:;">
+                        <i class="icon-settings"></i>
+                        <span class="title">Settings</span>
+                        <span class=""></span>
+                        <?php // if ($this->layout()->moduleName == 'Companymaster') { ?>
+                            <span class="selected"></span>
+                            <span class="arrow open"></span>
+                        <?php // } ?>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="<?php // echo ($this->layout()->moduleName == 'Companymaster' && $this->layout()->actionName == 'add-new') ? 'active' : '' ?>">
+                            <a href="/companymaster/add-new">
+                                <i class="icon-list"></i>Company Master</a>
+                        </li>
+                        <li class="<?php // echo ($this->layout()->moduleName == 'Companymaster' && $this->layout()->actionName == 'index') ? 'active' : '' ?>">
+                            <a href="/companymaster/index">
+                                <i class="icon-list"></i>TIN Master</a>
+                        </li>
+                        
+                    </ul>
+                </li>-->
+                
+<!--                <li class="<?php echo ($this->layout()->moduleName == 'Reports') ? 'active open' : '' ?>">
+                    <a href="javascript:;">
+                        <i class="icon-graph"></i>
+                        <span class="title">Reports</span>
+                        <?php if ($this->layout()->moduleName == 'Reports') { ?>
+                            <span class="selected"></span>
+                            <span class="arrow open"></span>
+                        <?php } ?>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="<?php echo ($this->layout()->moduleName == 'Reports' && $this->layout()->actionName == 'products-report') ? 'active' : '' ?>">
+                            <a href="/reports/products-report">
+                                <i class="icon-graph"></i> Products Report</a>
+                        </li>
+                        <li class="<?php echo ($this->layout()->moduleName == 'Reports' && $this->layout()->actionName == 'retailers-report') ? 'active' : '' ?>">
+                            <a href="/reports/retailers-report">
+                                <i class="icon-graph"></i> Retailers Report </a>
+                        </li>
+                    </ul>
+                </li>-->
+                
+                
+				
+        </ul>
+        <!-- END SIDEBAR MENU -->
+    </div>
+</div>
+<!-- END SIDEBAR -->
+

@@ -1,0 +1,82 @@
+<ul class="nav navbar-nav pull-right">
+    <!-- BEGIN NOTIFICATION DROPDOWN -->
+
+    <!-- END TODO DROPDOWN -->
+    <!-- BEGIN USER LOGIN DROPDOWN -->
+    <?php if($this->layout()->userRoleId != '3' && $this->layout()->userRole != '6'){?>
+<!--    <li id="orderHeader_count" class="dropdown dropdown-extended dropdown-notification">
+        <a data-close-others="true" class="dropdown-toggle" href="/rpcmain/order-for-day" title="Today's Order">
+            <i class="fa fa-shopping-cart"></i>
+            <span class="badge badge-primary" id="orderHeaderCount">0</span>
+        </a>                            
+    </li>-->
+<!--    <li id="pendingHeader_count" class="dropdown dropdown-extended dropdown-notification">
+        <a data-close-others="true" class="dropdown-toggle" href="/order/pending-order" title="Pending Order">
+            <i class="fa fa-shopping-cart"></i>
+            <span class="badge badge-warning" id="pendingHeaderCount">0</span>
+        </a>                            
+    </li>-->
+<!--    <li id="packaging_count" class="dropdown dropdown-extended dropdown-notification">
+        <a class="dropdown-toggle" href="/order/packaging-index" title="In Packaging">
+            <i class="fa fa-gift"></i>
+            <span class="badge badge-primary" id="packagingCount">0</span>
+        </a>                            
+    </li>-->
+<!--    <li id="dispatch_count" class="dropdown dropdown-extended dropdown-notification">
+        <a class="dropdown-toggle" href="/order/dispatch-index" Title="Ready to ship">
+            <i class="fa fa-truck"></i>
+            <span class="badge badge-default" id="dispatchCount">0</span>
+        </a>                            
+    </li>-->
+    <?php }?>
+    <?php if($this->layout()->userRole == '6'){?>
+    <li id="orderHeader_count" class="dropdown dropdown-extended dropdown-notification">
+        <a data-close-others="true" class="dropdown-toggle" href="/super-retailer/order-for-day" title="Today's Order">
+            <i class="fa fa-shopping-cart"></i>
+            <span class="badge badge-primary" id="orderHeaderCount">0</span>
+        </a>                            
+    </li>
+    <li id="pendingHeader_count" class="dropdown dropdown-extended dropdown-notification">
+        <a data-close-others="true" class="dropdown-toggle" href="/super-retailer/pending-order" title="Pending Order">
+            <i class="fa fa-shopping-cart"></i>
+            <span class="badge badge-warning" id="pendingHeaderCount">0</span>
+        </a>                            
+    </li>
+    <li id="packaging_count" class="dropdown dropdown-extended dropdown-notification">
+        <a class="dropdown-toggle" href="/super-retailer/packaging-index" title="In Packaging">
+            <i class="fa fa-gift"></i>
+            <span class="badge badge-primary" id="packagingCount">0</span>
+        </a>                            
+    </li>
+    <li id="dispatch_count" class="dropdown dropdown-extended dropdown-notification">
+        <a class="dropdown-toggle" href="/super-retailer/dispatch-index" Title="Ready to ship">
+            <i class="fa fa-truck"></i>
+            <span class="badge badge-default" id="dispatchCount">0</span>
+        </a>                            
+    </li>
+    <?php }?>
+    <li class="dropdown dropdown-user">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+            <span class="username username-hide-on-mobile">
+                 System Administrator</span>
+            <i class="fa fa-angle-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+
+            <li>
+               
+                <a href="/application/index/logout">
+                   
+                    <i class="icon-key"></i> Log Out </a>
+            </li>
+        </ul>
+    </li>
+    <!-- END USER LOGIN DROPDOWN -->
+
+</ul>
+<?php if($this->layout()->userRoleId != '3' && $this->layout()->userRole != '6'){?>
+
+<?php }?>
+<?php if($this->layout()->userRole == '6'){?>
+
+<?php }?>

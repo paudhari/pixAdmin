@@ -1,0 +1,172 @@
+<link id="style_color" type="text/css" rel="stylesheet" href="/assets/admin/layout/css/themes/default.css">
+<link type="text/css" rel="stylesheet" href="/assets/admin/layout/css/custom.css">
+<link href="/assets/global/plugins/bootstrap-datepicker/css/datepicker.css" type="text/css" rel="stylesheet">
+<div class="page-bar">
+				<ul class="page-breadcrumb">
+					<li>
+						<i class="fa fa-home"></i>
+						<a href="/users/index">User Management</a>
+						<i class="fa fa-angle-right"></i>
+					</li>
+					<li> Add New User </li>
+					
+				</ul>
+			</div>
+<div class="row ">
+    <!-- BEGIN SAMPLE FORM PORTLET-->
+    <div class="portlet box red">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-reorder"></i> User Registration
+            </div>
+        </div>
+        <div class="portlet-body form">
+            <?php
+            $form = $this->form;
+            $form->setAttribute('action', '');
+            $form->prepare();
+            echo $this->form()->openTag($form);
+            ?>
+            <?php // echo $this->formElement($form->get('UserId')); ?>
+            <div class="form-body">
+                <div class="form-group">
+                    
+                        <label class="col-md-2 control-label" for="fosFirstName">First Name <span class="required"> * </span></label>
+                        <div class="col-md-4 ">
+                            
+                            <?php echo $this->formElement($form->get('FirstName')); ?>
+                        <span class="help-block">
+                            <?php echo $this->formElementErrors($form->get('FirstName')); ?>
+                        </span>
+                    </div>
+                    
+                     <label class="col-md-2 control-label" for="fosLastName">Last Name <span class="required"> * </span></label>
+                        <div class="col-md-4 ">
+                            <?php echo $this->formElement($form->get('LastName')); ?>
+                        <span class="help-block">
+                            <?php echo $this->formElementErrors($form->get('LastName')); ?>
+
+                        </span>
+                    </div>
+                       
+                </div>
+                <div class="form-group">
+                    
+                        <label class="col-md-2 control-label" for="fosUserName">Username <span class="required"> * </span></label>
+                        <div class="col-md-4 ">
+                            <?php echo $this->formElement($form->get('UserName')); ?>
+                        <span class="help-block">
+                            <?php echo $this->formElementErrors($form->get('UserName')); ?>
+
+                        </span>
+                    </div>
+                    
+                        <label class="col-md-2 control-label" for="fosEmail">Email Address <span class="required"> * </span></label>
+                        <div class="col-md-4 ">
+                            <?php echo $this->formElement($form->get('Email')); ?>
+                        <span class="help-block">
+                            <?php echo $this->formElementErrors($form->get('Email')); ?>
+                        </span>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                        <label class="col-md-2 control-label" for="password">Password <span class="required"> * </span></label>
+                        <div class="col-md-4 ">
+                            <?php echo $this->formElement($form->get('password')); ?>
+                        <span class="help-block">
+                            <?php echo $this->formElementErrors($form->get('password')); ?>
+
+                        </span>
+                    </div>
+                    
+                        <label class="col-md-2 control-label" for="confirmPassword">Confirm Password <span class="required"> * </span></label>
+                        <div class="col-md-4 ">
+                            <?php echo $this->formElement($form->get('confirmPassword')); ?>
+                        <span class="help-block">
+                            <?php echo $this->formElementErrors($form->get('confirmPassword')); ?>
+
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                        <label class="col-md-2 control-label" for="fosMobile">Mobile <span class="required"> * </span></label>
+                        <div class="col-md-4 ">
+                            <?php echo $this->formElement($form->get('Mobile')); ?>
+                        <span class="help-block">
+                            <?php echo $this->formElementErrors($form->get('Mobile')); ?>
+
+                        </span>
+                    </div>
+                        <label class="col-md-2 control-label" for="stateId">Area of Operation <span class="required"> * </span> </label>
+                        <div class="col-md-4 ">
+                            <?php echo $this->formElement($form->get('gender')); ?>
+                        <span class="help-block">
+                            <?php echo $this->formElementErrors($form->get('gender')); ?>
+
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    
+                        <label class="col-md-2 control-label" for="usrCategory">User Category <span class="required"> * </span></label>
+                        <div class="col-md-4 ">
+                            <?php echo $this->formElement($form->get('address')); ?>
+                            
+                        <span class="help-block">
+                            <?php echo $this->formElementErrors($form->get('address')); ?>
+                        </span>
+                    </div>
+                    
+                        <label class="col-md-2 control-label" for="usrRoles">User Role <span class="required"> * </span></label>
+                        <div class="col-md-4 " id="usrrle">
+                            <?php echo $this->formElement($form->get('DOB')); ?>
+                           
+                        <span class="help-block">
+                            <?php echo $this->formElementErrors($form->get('DOB')); ?>
+                        </span>
+                   </div>
+                    </div>
+                
+                <div class="form-group">
+                        <div class="col-md-4 ">
+                            <?php echo $this->formElement($form->get('submit')); ?>
+                            
+                    </div>
+                    </div>
+                    
+</div>
+          <?php   echo $this->form()->closeTag($form);  ?>
+            
+    <?php
+    echo $this->inlinescript()
+            ->appendFile($this->basepath() . '/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js')
+            ->appendFile($this->basePath() . '/assets/global/plugins/jquery-validation/js/jquery.validate.min.js')
+            ->appendFile($this->basePath() . '/assets/global/plugins/jquery-validation/js/additional-methods.js')
+//             ->appendFile($this->basePath() . '/assets/admin/pages/scripts/form-validation.js')
+            ->appendFile($this->basePath() . '/assets/admin/pages/scripts/login.js')
+    ?>
+    <script>
+    function getUserRoles(str){
+        $.post('/users/get-roles-list', {catId : str}, function(data){
+            $('#usrrle').html(data);
+            $('#usrRoles').select2();
+            });
+    }
+        jQuery(document).ready(function () {
+            $('.date-picker').datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true
+            });
+            $(".select2").select2({
+                placeholder: "Select",
+                escapeMarkup: function (m) {
+                    return m;
+                }
+            });
+            Login.init();
+//             FormValidation.init();
+        });
+    </script>
